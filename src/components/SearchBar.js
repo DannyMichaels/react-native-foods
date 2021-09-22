@@ -2,11 +2,19 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import Feather from '@expo/vector-icons/Feather'; // Feather, FontAwesome, and more
 
-const SearchBar = () => {
+const SearchBar = ({ value, onChange }) => {
   return (
     <View style={styles.containerStyle}>
       <Feather name="search" style={styles.iconStyle} />
-      <TextInput style={styles.inputStyle} placeholder="Search" />
+      <TextInput
+        autoCapitalize="none" // capitalize first letter
+        autoCorrect={false}
+        style={styles.inputStyle}
+        placeholder="Search"
+        value={value}
+        onChangeText={(newValue) => onChange(newValue)}
+        onEndEditing={() => console.log('submitted')}
+      />
     </View>
   );
 };
