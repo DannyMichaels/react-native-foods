@@ -13,6 +13,7 @@ const SearchBar = () => {
 
 const styles = StyleSheet.create({
   containerStyle: {
+    marginTop: 15,
     height: 50,
     backgroundColor: '#f0eeee',
     borderRadius: 5,
