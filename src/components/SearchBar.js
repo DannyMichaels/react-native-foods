@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import Feather from '@expo/vector-icons/Feather'; // Feather, FontAwesome, and more
 
-const SearchBar = ({ value, onChange }) => {
+const SearchBar = ({ value, onChange, onSubmit }) => {
   return (
     <View style={styles.containerStyle}>
       <Feather name="search" style={styles.iconStyle} />
@@ -12,8 +12,8 @@ const SearchBar = ({ value, onChange }) => {
         style={styles.inputStyle}
         placeholder="Search"
         value={value}
-        onChangeText={(newValue) => onChange(newValue)}
-        onEndEditing={() => console.log('submitted')}
+        onChangeText={onChange}
+        onEndEditing={onSubmit} // runs when user taps return on iOS keyboard or checkmark on android
       />
     </View>
   );
