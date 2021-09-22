@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
 
   inputStyle: {
     flex: 1, // make textinput take as much space as possible instead of shoved to start.
+    fontSize: 18,
   },
 
   iconStyle: {
