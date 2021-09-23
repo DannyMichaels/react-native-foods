@@ -24,7 +24,9 @@
     "react-navigation-stack": "^2.10.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "metro-react-native-babel-preset": "^0.66.2"
   },
   "private": true
 }

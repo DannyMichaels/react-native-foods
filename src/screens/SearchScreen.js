@@ -8,21 +8,29 @@ const SearchScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const searchApi = async () => {
-    let response = await yelpApi.get('/search');
-    console.log({ response });
-    return response;
+    let response = await yelpApi.get('/search', {
+      // query string
+      params: {
+        limit: 50,
+        term: searchTerm,
+        location: 'san jose',
+      },
+    });
+
+    console.log('results:', response.data.businesses);
+    setResults(response.data.businesses);
   };
 
-  useEffect(() => {
-    searchApi();
-  }, []);
+  console.log('env', process.env);
+
+  console.log('yelp token', process.env['REACT_APP_YELP_API_TOKEN']);
 
   return (
     <View>
       <SearchBar
         value={searchTerm}
-        onChange={(newValue) => setSearchTerm(newValue)}
-        onSubmit={() => console.log('term was submitted')}
+        onChange={setSearchTerm}
+        onSubmit={searchApi}
       />
       <Text>Search Screen</Text>
       <Text>We have found {results.length} results</Text>
