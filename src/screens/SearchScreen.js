@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import yelpApi from '../services/yelpApiConfig';
+import { REACT_APP_YELP_API_TOKEN, API_KEY } from 'react-native-dotenv';
 
 const SearchScreen = () => {
   const [results, setResults] = useState([]); // restaurants
@@ -22,8 +23,8 @@ const SearchScreen = () => {
   };
 
   console.log('env', process.env);
-
-  console.log('yelp token', process.env['REACT_APP_YELP_API_TOKEN']);
+  console.log({ API_KEY });
+  console.log('yelp token', REACT_APP_YELP_API_TOKEN);
 
   return (
     <View>
@@ -32,6 +33,7 @@ const SearchScreen = () => {
         onChange={setSearchTerm}
         onSubmit={searchApi}
       />
+      <Text>{API_KEY}</Text>
       <Text>Search Screen</Text>
       <Text>We have found {results.length} results</Text>
     </View>
