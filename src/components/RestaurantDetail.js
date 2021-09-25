@@ -5,7 +5,7 @@ const RestaurantDetail = ({ restaurant }) => {
   const { review_count, rating, name, image_url } = restaurant;
 
   return (
-    <View>
+    <View style={styles.container}>
       <Image style={styles.image} source={{ uri: image_url }} />
       <Text style={styles.name}>{name}</Text>
       <Text>
@@ -16,6 +16,9 @@ const RestaurantDetail = ({ restaurant }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginLeft: 15,
+  },
   image: {
     width: 250,
     height: 120, // height and width must be added in react native or image won't show.

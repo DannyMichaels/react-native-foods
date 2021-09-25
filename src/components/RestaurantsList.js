@@ -4,7 +4,7 @@ import RestaurantDetail from './RestaurantDetail';
 
 const RestaurantsList = ({ title, results }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
 
       {/* a scrollable list, set to be horizontal */}
@@ -24,6 +24,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginLeft: 15,
+    marginBottom: 5,
+  },
+  container: {
+    marginBottom: 10,
   },
 });
 
