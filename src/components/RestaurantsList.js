@@ -9,7 +9,8 @@ const RestaurantsList = ({ title, results }) => {
 
       {/* a scrollable list, set to be horizontal */}
       <FlatList
-        horizontal
+        horizontal // make list horizontal
+        showsHorizontalScrollIndicator={false} // make scrollbar hidden.
         data={results}
         keyExtractor={(result) => result.id}
         renderItem={({ item }) => {

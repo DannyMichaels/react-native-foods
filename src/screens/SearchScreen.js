@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useRestaurants from '../hooks/useRestaurants';
 
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import RestaurantsList from '../components/RestaurantsList';
 import SearchBar from '../components/SearchBar';
 
@@ -15,27 +15,31 @@ const SearchScreen = () => {
   };
 
   return (
-    <View>
+    // empty fragments to return container of content or View with flex: 1 style
+    <>
       <SearchBar
         value={searchTerm}
         onChange={setSearchTerm}
         onSubmit={() => searchApi(searchTerm)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>We have found {results.length} results</Text>
-      <RestaurantsList
-        results={filterResultsByPrice('$')}
-        title="Cost Effective"
-      />
-      <RestaurantsList
-        results={filterResultsByPrice('$$')}
-        title="Bit Pricier"
-      />
-      <RestaurantsList
-        results={filterResultsByPrice('$$$')}
-        title="Big Spender"
-      />
-    </View>
+
+      {/* Scrollable vertically with ScrollView */}
+      <ScrollView>
+        <RestaurantsList
+          results={filterResultsByPrice('$')}
+          title="Cost Effective"
+        />
+        <RestaurantsList
+          results={filterResultsByPrice('$$')}
+          title="Bit Pricier"
+        />
+        <RestaurantsList
+          results={filterResultsByPrice('$$$')}
+          title="Big Spender"
+        />
+      </ScrollView>
+    </>
   );
 };
 
