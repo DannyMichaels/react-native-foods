@@ -7,8 +7,12 @@ import SearchBar from '../components/SearchBar';
 
 const SearchScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
-
   const [searchApi, results, errorMessage] = useRestaurants();
+
+  const filterResultsByPrice = (price) => {
+    // price === '$' || '$$' || '$$$'
+    return results.filter((result) => result.price === price);
+  };
 
   return (
     <View>
@@ -19,9 +23,18 @@ const SearchScreen = () => {
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <Text>We have found {results.length} results</Text>
-      <RestaurantsList title="Cost Effective" />
-      <RestaurantsList title="Bit Pricier" />
-      <RestaurantsList title="Big Spender" />
+      <RestaurantsList
+        results={filterResultsByPrice('$')}
+        title="Cost Effective"
+      />
+      <RestaurantsList
+        results={filterResultsByPrice('$$')}
+        title="Bit Pricier"
+      />
+      <RestaurantsList
+        results={filterResultsByPrice('$$$')}
+        title="Big Spender"
+      />
     </View>
   );
 };
