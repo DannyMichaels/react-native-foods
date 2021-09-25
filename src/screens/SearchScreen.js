@@ -15,14 +15,16 @@ const SearchScreen = () => {
   };
 
   return (
-    // empty fragments to return container of content or View with flex: 1 style
+    // empty fragments to return content or View with flex: 1 style
     <>
       <SearchBar
         value={searchTerm}
         onChange={setSearchTerm}
         onSubmit={() => searchApi(searchTerm)}
       />
-      {errorMessage ? <Text>{errorMessage}</Text> : null}
+      {errorMessage ? (
+        <Text style={{ marginLeft: 15, marginBottom: 10 }}>{errorMessage}</Text>
+      ) : null}
 
       {/* Scrollable vertically with ScrollView */}
       <ScrollView>
