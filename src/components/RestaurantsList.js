@@ -10,6 +10,8 @@ import { withNavigation } from 'react-navigation'; // allows us to access naviga
 import RestaurantDetail from './RestaurantDetail';
 
 const RestaurantsList = ({ title, results, navigation }) => {
+  if (!results.length) return null; // don't return the row if there's nothing to show.
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
