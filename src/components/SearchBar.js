@@ -4,12 +4,12 @@ import Feather from '@expo/vector-icons/Feather'; // Feather, FontAwesome, and m
 
 const SearchBar = ({ value, onChange, onSubmit }) => {
   return (
-    <View style={styles.containerStyle}>
-      <Feather name="search" style={styles.iconStyle} />
+    <View style={styles.container}>
+      <Feather name="search" style={styles.icon} />
       <TextInput
         autoCapitalize="none" // capitalize first letter
         autoCorrect={false}
-        style={styles.inputStyle}
+        style={styles.input}
         placeholder="Search"
         value={value}
         onChangeText={onChange}
@@ -20,7 +20,7 @@ const SearchBar = ({ value, onChange, onSubmit }) => {
 };
 
 const styles = StyleSheet.create({
-  containerStyle: {
+  container: {
     marginTop: 10,
     height: 50,
     backgroundColor: '#f0eeee',
@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 
-  inputStyle: {
+  input: {
     flex: 1, // make textinput take as much space as possible instead of shoved to start.
     fontSize: 18,
   },
 
-  iconStyle: {
+  icon: {
     fontSize: 35,
     alignSelf: 'center', // align self to center instead of align-items center on container so search input doesn't collapse
     marginHorizontal: 15, // spacing on left and right
