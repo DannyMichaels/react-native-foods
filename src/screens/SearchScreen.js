@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import useRestaurants from '../hooks/useRestaurants';
 
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 import RestaurantsList from '../components/RestaurantsList';
 import SearchBar from '../components/SearchBar';
 
-const SearchScreen = () => {
+//  navigation prop passed o screen component by react-nativagtion
+const SearchScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchApi, results, errorMessage] = useRestaurants();
 
@@ -31,14 +32,17 @@ const SearchScreen = () => {
         <RestaurantsList
           results={filterResultsByPrice('$')}
           title="Cost Effective"
+          navigation={navigation}
         />
         <RestaurantsList
           results={filterResultsByPrice('$$')}
           title="Bit Pricier"
+          navigation={navigation}
         />
         <RestaurantsList
           results={filterResultsByPrice('$$$')}
           title="Big Spender"
+          navigation={navigation}
         />
       </ScrollView>
     </>
