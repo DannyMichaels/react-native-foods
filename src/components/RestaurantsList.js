@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
+import { withNavigation } from 'react-navigation'; // allows us to access navigation prop without having to pass it from screen to child
 import RestaurantDetail from './RestaurantDetail';
 
 const RestaurantsList = ({ title, results, navigation }) => {
@@ -45,4 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RestaurantsList;
+export default withNavigation(RestaurantsList);
