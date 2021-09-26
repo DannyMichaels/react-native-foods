@@ -23,8 +23,10 @@ const RestaurantsList = ({ title, results, navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              // when pressing this component opacity changes
-              onPress={() => navigation.navigate('RestaurantsShow')}>
+              // TouchableOpacity: when pressing this component opacity changes
+              onPress={() =>
+                navigation.navigate('RestaurantsShow', { id: item.id })
+              }>
               <RestaurantDetail restaurant={item} />
             </TouchableOpacity>
           );
